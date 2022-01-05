@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h2>
+                <%= tagline %>
+            </h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(user) { %>
+                        <tr>
+                            <td>
+                                <%= user.name %>
+                            </td>
+                            <td>
+                                <%= user.address %>
+                            </td>
+                            <td>
+                                <%= user.phone %>
+                            </td>
+                            <td class="text-end">
+
+                                <a href="/editUser/<%= user.id %>" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>
+                                  Edit</a>
+                                <a href="http://localhost:8080/processDelete/<%= user.id %>" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
+                            </td>
+
+                        </tr>
+                        <% }); %>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>
